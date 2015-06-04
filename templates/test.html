@@ -5,6 +5,18 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title></title>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                    $('#blog').slideDown(5000, function () {
+                            $('img').slideDown(5000);
+                        });
+
+                    $('#python').click(function () {
+                        $('#content').load("{{ url_for('static', filename='python.html') }}");
+                        return false;
+                        });
+                    });
+        </script>
 
         <style type="text/css">
             * {
@@ -16,11 +28,9 @@
                 background-color: #eee;
                 font-size: 25px;
             }
-            h1 {
+            h1,h2{
                 font-family: Georgia,serif;
                 color: #377BA8;
-                padding-bottom: 0.5em;
-                border-bottom: 2px solid #eee;
             }
 
 
@@ -90,6 +100,25 @@
                 padding: 20px;
                 margin: 10px;
             }
+            div#aboutme blockquote ul li {
+                padding: 10px;
+            }
+
+
+            div#articles {
+                border: 5px solid #ccc;
+                margin: 200px auto;
+                width: 40em;
+                background-color: white;
+                padding: 0.8em;
+            }
+            div#articles div.panel,p.flip {
+                background-color: #e5eecc;
+                border: solid 1px #c3c3c3;
+                padding: 0.8em;
+            }
+
+
         </style>
     </head>
 
@@ -97,10 +126,11 @@
         <div id="head">
             <ul>
                 <li style="float: left;padding-left: 20px;">Junmin Gu</li>
+                <li><a href="#" style="font-size: 0.7em; ">留言吧</a></li>
                 <li><a href="#">About me</a></li>
                 <li><a href="#">Articles</a>
                     <ul>
-                        <li><a href="#">Python</a></li>
+                        <li><a href="#" id="python">Python</a></li>
                         <li><a href="#">html/css</a></li>
                         <li><a href="#">js/jQ</a></li>
                         <li><a href="#" style="font-size: 0.7em;">学习心得</a></li>
@@ -108,16 +138,17 @@
                 </li>
                 <li><a href="#">Utility</a>
                     <ul>
-                        <li><a href="#">Dictionary</a></li>
-                        <li><a href="#">Calculator</a></li>
+                        <li><a href="/dic/" target="_blank">Dictionary</a></li>
+                        <li><a href="/cal" target="_blank">Calculator</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Github</a></li>
-                <li><a href="#">Blog</a></li>
+                <li><a href="https//www.github.com/SPxiaomin" target="_blank">Github</a></li>
+                <li><a href="/">Blog</a></li>
             </ul>
         </div>
+    <div id="content">
         <div id="blog" style="display: none; ">
-            <img src="{{ url_for('static', filename="head.jpg") }}" />
+            <img src="{{ url_for('static', filename="head.jpg") }}" style="display: none;"/>
             <h1>Hi, 我是<strong>小民.</strong></h1>
             <p>欢迎来到小站</p>
             <p>大一学生党<br />
@@ -126,114 +157,93 @@
             渴望<strong><i>变强</i></strong><br />
             </p>
         </div>
-        <div id="aboutme">
-
- <h1 id="wzxhzdk0self-introductionwzxhzdk1"><i>self-introduction</i></h1>
-            <blockquote style="padding: 50px;">
+    </div>
+        <div id="aboutme" style="display: none;">
+            <h1 style="padding-bottom: 0.5em;border-bottom: 2px solid #eee;"><i>self-introduction</i></h1> 
             <blockquote>
-                <p>I'm 谷俊民， <br />
-                    大一学生党，<br />
-                    今年有点老了，<br />
-                    但是一直保持者一颗热爱学习的心，<br />
-                    渴望进入<i>geek</i>圈，<br /><br /><br />
-                    奋斗历程简介:<br />
-                    经过2015年新年之际--2015年近6月的几个月时间的艰苦奋斗，<br />
-                    终于，<br />
-                    从一个连 <em>博客</em> 是什么东西，<br />
-                    都不知道的人，<br />
-                    一个连 <em>系统</em> 都不会装的孩子 ,<br />
-                    一个连 <strong>几行代码</strong> 都要敲近 <strong>十分钟</strong> 的孩子，<br />
+                <p style="padding-left: 0.8em;">I'm 谷俊民，<br />
+                大一学生党，<br />
+                今年已有点老了，<br />
+                但是一直保持着一颗热爱学习的心，<br />
+                渴望进入 <code><i style="color: #FF69B4;">Geek</i></code> 圈
                 </p>
-                <blockquote>
-                    <p>成了一个计算机专业的 <strong>小屌丝，</strong></p>
-                    <blockquote>
-                        <p>完成了完美的逆袭。。。</p>
-                    </blockquote><br /><br />
-                </blockquote>
-                <p>我非常的感谢  ，
-                    那些在我迷茫的时候细心的教导我的学长和学姐， 叔叔和阿姨  ，<br />
-                    非常感谢家人  ，<br />
-                    在我感到想放弃的时候，给我鼓励，<br />
-                    这一年过的真心不容易，<br />
-                    未来的道路也不见得会容易，<br />
-                    不管未来会发生什么，
-                    我都不会 <strong>言弃</strong></p>
-                </blockquote><br /><br />
-             <blockquote>
-            <p>SKILLS:</p>
-            <blockquote>
-            <ul>
-            <li>
-            <p><code>Python</code></p>
-            <blockquote>
-                <ul>
-                    <li><code>flask</code></li>
-                </ul>
-            </blockquote>
-            </li>
-            <li>
-            <p>web:</p>
-            <blockquote>
-            <ul>
-            <li><code>PHP</code></li>    
-            <li><code>html/css/js/jquery</code></li>
-            <li><code>LESS</code></li>
+                <br /><br />
                 
-            </ul>
-            </blockquote>
-            </li>
-            <li>
-            <p><code>Java</code></p>
-            </li>
-            <li>
-            <p>linux:</p>
-            <blockquote>
-            <ul>
-            <li><code>ubuntu</code><br />
-            </li>
-            <li><code>bash</code></li>
-            </ul>
-            </blockquote>
-            </li>
-            <li>edit:<blockquote>
-            <ul>
-            <li><code>vim</code>(favorite)</li>
-            <li><code>sublime</code></li>
-            </ul>
-            </blockquote>
-            </li>
-            <li>database:<blockquote>
-            <ul>
-            <li><code>mysql</code></li>
-            </ul>
-            </blockquote>
-            </li>
-            <li>版本控制：<blockquote>
-            <ul>
-            <li>git<blockquote>
-            <ul>
-            <li>github</li>
-            </ul>
-            </blockquote>
-            </li>
-            </ul>
-            </blockquote>
-            </li>
-                <li>其它：<blockquote>
-            <ul>
-            <li>markdown<blockquote>
-            </blockquote>
-            </li>
-            </ul>
-            </blockquote>
-            </li>
-            </ul>
-            </blockquote>
-            </blockquote>
-        </blockquote>
+                <p style="padding-left: 0.8em;border-top: 1px solid #ccc;">奋斗历程简介:<br />
+                <blockquote style="padding-left: 2em; ">
+                    在多位大神的指点之下，<br />
+                    经过 2015新年之际--2015/5月中旬 的艰苦奋斗，<br />
+                    终于，<br />
+                    从一个连 博客 是什么东西，<br />
+                    都不知道的人，<br />
+                    一个连 系统 都不会装的孩子，<br />
+                    (为了学习安装linux和win7&#38;8双系统，花费近3天时间)<br />
+                    (装系统不下 <code><i style="color: #FF69B4;">50</i></code> 次)<br />
+                    (问题来了，花费我的时间就算了，竟然连我的 硬盘 也不放过...)<br />
+                    一个连 几行代码 都要敲近 十分钟 的孩子，<br />
+                    转形成了一个真正的 计算机专业小屌丝，<br />
+                    完成了完美的 逆袭...<br />
+                </blockquote>
+                </p>
+                <br /><br />
 
+                <p style="padding-left: 0.8em; border-top: 1px solid #ccc;">
+                非常感谢，<br />
+                在我想要放弃的时候，在我最落魄的时候，给我鼓励的， 家人<br />
+                那些在我迷茫的时候细心的教导我的学长，学姐，叔叔，阿姨，<br />
+                这一年来，有坎坷，有挫折，<br />
+                但是，<br />
+                我战胜了它们，<br />
+                未来的道路上会有更多的挫折，<br >
+                这一切我一定会去战胜，<br />
+                <code><i style="color: #FF69B4;">永不言弃</i></code>
+                </p>
+                <br /><br />
 
-
+                <p style="padding-left: 0.8em; border-top: 1px solid #ccc;">
+                <h2 style="color: #377BA8;"><i>SKILL:</i></h2>
+                <blockquote class="self">
+                    <ul style="padding-left: 100px;">
+                        <li><code><i style="color: #000000;">Python:</i></code></li>
+                            <ul style="padding-left:90px;">
+                                <li><code><i style="color: #000000;">flask</i></code></li>
+                            </ul>
+                        <li><code><i style="color: #000000;">web:</i></code></li>
+                            <ul style="padding-left:90px;">
+                                <li><code><i style="color: #000000;">PHP(正在学习)</i></code></li>
+                                <li><code><i style="color: #000000;">html/css</i></code></li>
+                                <li><code><i style="color: #000000;">javascript/jQuery</i></code></li>
+                            </ul>
+                        <li><code><i style="color: #000000;">Java</i></code></li>
+                        <li><code><i style="color: #000000;">c/c++</i></code></li>
+                        <li><code><i style="color: #000000;">Linux:</i></code></li>
+                            <ul style="padding-left:90px;">
+                                <li><code><i style="color: #000000;">Ubuntu</i></code></li>
+                            </ul>
+                        <li><code><i style="color: #000000;">edit:</i></code></li>
+                            <ul style="padding-left:90px;">
+                                <li><code><i style="color: #000000;">vim(favorite)</i></code></li>
+                                <li><code><i style="color: #000000;">sublime</i></code></li>
+                            </ul>
+                        <li><code><i style="color: #000000;">database:</i></code></li>
+                            <ul style="padding-left:90px;">
+                                <li><code><i style="color: #000000;">mysql</i></code></li>
+                            </ul>
+                        <li><code><i style="color: #000000;">版本控制：</i></code></li>
+                            <ul style="padding-left:90px;">
+                                <li><code><i style="color: #000000;">git:</i></code></li>
+                                <ul style="padding-left:90px;">
+                                    <li><code><i style="color: #000000;">github</i></code></li>
+                                </ul>
+                            </ul>
+                        <li><code><i style="color: #000000;">其它：</i></code></li>
+                            <ul style="padding-left:90px;">
+                                <li><code><i style="color: #000000;">markdown</i></code></li>
+                            </ul>
+                    </ul>
+                </blockquote>
+                </p>
+            </blockquote>
         </div>
     </body>
 </html>

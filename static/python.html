@@ -1,0 +1,15 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<script type="text/javascipt">
+$(document).ready(function (){
+        $('.flip').click(function () {
+            $('.panel').slideDown(5000);
+            });
+        });
+</script>
+<div id="articles">
+    <h1 style="padding-bottom: 0.5em; border-bottom: 2px solid #eee;">Python 学习笔记</h1>
+    <p class="flip" style="margin-top: 2em;">test</p>
+    <div class="panel" style="display: none;">
+        <p>test</p>
+    </div>
+</div>
